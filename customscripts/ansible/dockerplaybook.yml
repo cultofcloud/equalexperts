@@ -1,0 +1,13 @@
+---
+-
+  hosts: tag_Name_app_server
+  become: true
+  tasks:
+    - name: start the docker image with the port
+      docker_container:
+         name: petclinic
+         image: cultofcloud/petclinic
+         state: started
+         publish_ports:
+           - "8080:8080"
+...
